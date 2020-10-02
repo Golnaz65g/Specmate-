@@ -1,0 +1,39 @@
+<div *ngIf="visible && showErrors" class="card">
+    <h5 class="card-header">
+        {{'ErrorsandWarnings' | translate}}
+        <button id="linksactions-expand-button" type="button" class="btn btn-sm btn-secondary pull-right"
+            (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample"><i
+                *ngIf="isCollapsed" class="fa fa-angle-double-down"></i><i *ngIf="!isCollapsed"
+                class="fa fa-angle-double-up"></i></button>
+    </h5>
+    <div class="card-body" *ngIf="!isCollapsed">
+        <p class="card-text">
+            <span *ngIf="validationResults && validationResults.length == 0" class="text-success">
+                <i aria-hidden="true" class="fa fa-check"></i>&nbsp;{{'NoWarnings' | translate}}.
+            </span>
+            <short-model-error-message-display [model]="model"></short-model-error-message-display>
+        </p>
+    </div>
+    <table *ngIf="validationResults && validationResults.length > 0" class="table">
+        <colgroup>
+            <col width="50%" />
+            <col width="50%" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Elements</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let validationResult of validationResults">
+                <td>
+                    {{validationResult.name}}
+                </td>
+                <td>
+                    {{validationResult.message}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

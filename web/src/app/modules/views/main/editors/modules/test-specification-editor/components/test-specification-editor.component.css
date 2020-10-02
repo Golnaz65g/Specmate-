@@ -1,0 +1,26 @@
+.test-cases-container {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+
+.test-case-name-header {
+    white-space: nowrap;
+    min-width: 200px;
+}
+
+.test-procedure-header {
+    white-space: nowrap;
+}
+
+.test-case-row {
+    cursor: move;
+}
+
+.test-case-inconsistent {
+    background-color: #ffe4e1 !important;
+}
+
+.parameter-input {
+    min-width: 170px;
+}
